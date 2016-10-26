@@ -1,0 +1,34 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>myClub</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <p>Select the team you to want to follow</p>
+  <ion-list>
+  <ion-item>
+    <ion-label>League</ion-label>
+    <ion-select [(ngModel)]="selectedLeague" (ionChange)="leagueChanged($event)">
+      <ion-option *ngFor="let league of leagues" value="{{league.id}}">{{league.caption}} </ion-option>
+    </ion-select>
+  </ion-item>
+   <ion-item>
+    <ion-label>Team</ion-label>
+    <ion-select (ionChange)="teamChanged($event)">
+      <ion-option *ngFor="let team of teams" value="{{team.id}}">{{team.name}} </ion-option>
+    </ion-select>
+  </ion-item>
+  </ion-list>
+  <img src="{{selectedTeam.crestUrl}}" class="teamCrest" [hidden]="!selectedTeam.crestUrl"/>
+  <button ion-button full (click)="submitTeam()">Set as my team</button>
+</ion-content>
