@@ -6,6 +6,8 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SettingsPage } from '../pages/settings-page/settings-page';
+import { FixturesPage } from '../pages/fixtures/fixtures';
+import { ScoresPage } from '../pages/scores/scores';
 import { FootballInfo } from '../providers/football-info';
 
 @NgModule({
@@ -15,7 +17,9 @@ import { FootballInfo } from '../providers/football-info';
     ContactPage,
     HomePage,
     TabsPage,
-    SettingsPage
+    SettingsPage,
+    FixturesPage,
+    ScoresPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -27,7 +31,9 @@ import { FootballInfo } from '../providers/football-info';
     ContactPage,
     HomePage,
     TabsPage,
-    SettingsPage
+    SettingsPage,
+    FixturesPage,
+    ScoresPage
   ],
   providers: [FootballInfo]
 })

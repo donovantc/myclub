@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { FootballInfo } from '../../providers/football-info';
+import { TabsPage } from '../tabs/tabs';
 
 /*
   Generated class for the SettingsPage page.
@@ -20,7 +21,7 @@ export class SettingsPage {
 
   selectedTeam : any = {};
 
-  constructor(public navCtrl: NavController, private footballInfo : FootballInfo) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private footballInfo: FootballInfo) {}
 
   ionViewDidLoad() {
     this.footballInfo.getLeagues().then((data) => {
@@ -56,7 +57,7 @@ export class SettingsPage {
   }
 
   submitTeam(){
-    alert("Team submitted");
+    this.navCtrl.push(TabsPage, {selectedTeam: this.selectedTeam});
   }
 
   _addIdToTeams(){
@@ -70,7 +71,7 @@ export class SettingsPage {
       return null;
 
     //format = http://api.football-data.org/v1/teams/62
-    let result = url.substr(url.lastIndexOf("/"));
+    let result = url.substr(url.lastIndexOf("/") + 1);
     return result;
   }
 

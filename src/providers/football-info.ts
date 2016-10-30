@@ -38,6 +38,21 @@ export class FootballInfo {
       });
   }
 
+  getTeamFixtures(teamId, time, days){
+    let teamFixturesUrl = `/v1/teams/${teamId}/fixtures?timeFrame=${time}${days}`;
+
+    return new Promise((resolve, reject) => {
+          this.http.get(this.baseUrl + teamFixturesUrl,{
+            headers: this._getGetHeaders()
+          })
+          .map(res => res.json())
+          .subscribe(
+            data => { resolve(data.fixtures); },
+            err => { reject(err); }
+          );
+      });
+  }
+
   performGet(serviceUrl){
     return new Promise((resolve, reject) => {
           this.http.get(this.baseUrl + serviceUrl, {

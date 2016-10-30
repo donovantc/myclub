@@ -1,0 +1,29 @@
+<!--
+  Generated template for the Scores page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>scores</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let fixture of fixtures" (click)="fixtureSelected(fixture)">
+      <ion-card-header>
+        {{fixture.date}}
+      </ion-card-header>
+      <ion-card-content>
+        <p class="score">
+        {{fixture.homeTeamName}} <span class="goals">{{fixture.result.goalsHomeTeam}}</span> <br>
+        {{fixture.awayTeamName}} <span class="goals">{{fixture.result.goalsAwayTeam}}</span> <br></p>
+      </ion-card-content>
+    </ion-item>
+  </ion-list>
+</ion-content>
