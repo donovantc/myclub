@@ -12,8 +12,9 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class FootballInfo {
   id : string = "";
-  baseUrl : string = "api";
-  leagueUrl : string = "/v1/competitions/"; //"http://api.football-data.org/v1/competitions/";
+  baseUrl : string = "http://api.football-data.org";
+  //baseUrl : string = "api";
+  leagueUrl : string = "/v1/competitions/";
 
   constructor(private http: Http) {
     
@@ -72,12 +73,12 @@ export class FootballInfo {
     return headers;
   }
 
-  handleError(error: any) {
+  /*handleError(error: any) {
     // In a real world app, we might use a remote logging infrastructure
     // We'd also dig deeper into the error to get a better message
     let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.log(errMsg); // log to console instead
     return Observable.throw(errMsg);
-  }
+  }*/
 }

@@ -81,8 +81,8 @@ export class SettingsPage {
         return value.id == leagueId;
     });
 
-    if(!selectedLeague)
-      return [];
+    if(!!selectedLeague)
+      return {};
 
     return selectedLeague[0];
   }

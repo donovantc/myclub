@@ -18,7 +18,7 @@
   <ion-list>
   <ion-item>
     <ion-label>League</ion-label>
-    <ion-select [(ngModel)]="selectedLeague" (ionChange)="leagueChanged($event)">
+    <ion-select (ionChange)="leagueChanged($event)">
       <ion-option *ngFor="let league of leagues" value="{{league.id}}">{{league.caption}} </ion-option>
     </ion-select>
   </ion-item>
